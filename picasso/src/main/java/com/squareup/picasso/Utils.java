@@ -15,6 +15,12 @@
  */
 package com.squareup.picasso;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.ThreadFactory;
+
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.ContentResolver;
@@ -29,11 +35,7 @@ import android.os.Process;
 import android.os.StatFs;
 import android.provider.Settings;
 import android.util.Log;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.List;
-import java.util.concurrent.ThreadFactory;
+
 import okio.BufferedSource;
 import okio.ByteString;
 
@@ -48,9 +50,9 @@ import static com.squareup.picasso.Picasso.TAG;
 import static java.lang.String.format;
 
 final class Utils {
-  static final String THREAD_PREFIX = "Picasso-";
+  static final String THREAD_PREFIX = "Primer-Picasso-";
   static final String THREAD_IDLE_NAME = THREAD_PREFIX + "Idle";
-  private static final String PICASSO_CACHE = "picasso-cache";
+  public static final String PICASSO_CACHE = "primer-picasso-cache";
   private static final int KEY_PADDING = 50; // Determined by exact science.
   private static final int MIN_DISK_CACHE_SIZE = 5 * 1024 * 1024; // 5MB
   private static final int MAX_DISK_CACHE_SIZE = 50 * 1024 * 1024; // 50MB
