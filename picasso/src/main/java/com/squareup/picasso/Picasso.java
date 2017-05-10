@@ -149,7 +149,7 @@ public class Picasso {
 
   private final Listener listener;
   private final RequestTransformer requestTransformer;
-  private final CleanupThread cleanupThread;
+  /*package for testing*/ final CleanupThread cleanupThread;
   private final List<RequestHandler> requestHandlers;
 
   final Context context;
@@ -608,7 +608,8 @@ public class Picasso {
    * gets added to the reference queue. This thread empties the reference queue and cancels the
    * request.
    */
-  private static class CleanupThread extends Thread {
+  //PRIMER making public
+  static class CleanupThread extends Thread {
     private final ReferenceQueue<Object> referenceQueue;
     private final Handler handler;
 
